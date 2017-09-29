@@ -43,6 +43,8 @@ open class NMessengerViewController: UIViewController, UITextViewDelegate, NMess
     //This is input view
     open var inputBarView: InputBarView!
     
+    open var handlerInBatchFetch: ((Void)->Void)?
+    
     //MARK: Private Variables
     //Bool to indicate if the keyboard is open
     open fileprivate(set) var isKeyboardIsShown : Bool = false
@@ -548,6 +550,13 @@ open class NMessengerViewController: UIViewController, UITextViewDelegate, NMess
         let newMessage = self.createCustomContentNodeMessage(node, isIncomingMessage: isIncomingMessage)
         self.addMessageToMessenger(newMessage)
         return newMessage
+    }
+    
+    //PRAGMA MARK: -- BATCH DELEGATE --
+    
+    public func batchFetchContent() {
+        guard let handlerInBatchFetch = handlerInBatchFetch else { return  }
+        handlerInBatchFetch()
     }
     
 }
