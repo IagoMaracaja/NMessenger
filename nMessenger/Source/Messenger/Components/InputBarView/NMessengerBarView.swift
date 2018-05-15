@@ -22,6 +22,7 @@ open class NMessengerBarView: InputBarView, UITextViewDelegate, CameraViewDelega
     //MARK: IBOutlets
     //@IBOutlet for InputBarView
     @IBOutlet open weak var inputBarView: UIView!
+    @IBOutlet weak var plusButton: UIButton!
     //@IBOutlet for send button
     @IBOutlet open weak var sendButton: UIButton!
     //@IBOutlets NSLayoutConstraint input area view height
